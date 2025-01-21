@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sriracha&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
+body {
+    padding: 0;
+    margin:0;
+    font-family: "Righteous", serif;
+}
+
+.header {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('/Asset/Image/Element/Backround.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+/* Gradient overlay pada background */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(15, 18, 24, 0.95),
+        rgba(23, 25, 35, 0.85)
+    );
+    z-index: 1;
+}
+
+/* Container utama */
+.header__container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    z-index: 2;
+}
+
+/* Content wrapper dengan glassmorphism effect */
+.header__content {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Judul dengan gradient text */
+.header__title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #4facfe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(79, 172, 254, 0.3);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+/* Subtitle dengan fade in animation */
+.header__subtitle {
+    font-size: 1.2rem;
+    color: #e1e7ff;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.5s forwards;
+}
+
+/* DateTime container */
+.header__datetime {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Date and Time boxes */
+.header__date,
+.header__time {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(79, 172, 254, 0.2);
+    border-radius: 50px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.header__date:hover,
+.header__time:hover {
+    background: rgba(79, 172, 254, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.2);
+}
+
+.header__date i,
+.header__time i {
+    color: #4facfe;
+    font-size: 1.2rem;
+}
+
+/* Divider */
+.header__divider {
+    width: 2px;
+    height: 25px;
+    background: rgba(79, 172, 254, 0.3);
+    transform: rotate(15deg);
+}
+
+/* Button container */
+.header__action {
+    margin-top: 2.5rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+}
+
+/* Modern gradient button */
+.header__button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Button icon */
+.header__button-icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+/* Button hover effect */
+.header__button-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.2)
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.header__button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+}
+
+.header__button:hover .header__button-effect {
+    transform: translateX(0);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 10px rgba(79, 172, 254, 0.3);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header__title {
+        font-size: 2.5rem;
+    }
+
+    .header__content {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .header__datetime {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header__divider {
+        display: none;
+    }
+
+    .header__date,
+    .header__time {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header__button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Extra hover effects */
+.header__content:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.header__button:active {
+    transform: scale(0.98);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #171923;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4facfe;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 172, 254, 0.8);
+}

@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sriracha&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
+/* Navbar base styles */
+.navbar {
+    background: linear-gradient(145deg, #0f1218 0%, #171923 100%);
+    padding: 15px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    font-family: "Righteous", serif;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+/* Brand/Logo styles */
+.navbar-brand {
+    color: #fff !important;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    position: relative;
+    padding: 4px 12px;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-1px);
+    text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+}
+
+/* Navigation links */
+.navbar-nav .nav-link {
+    color: #e1e7ff !important;
+    font-weight: 400;
+    padding: 6px 14px;
+    margin: 0 3px;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+/* Minimal underline effect */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 14px;
+    width: 0;
+    height: 1px;
+    background: #4facfe;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: calc(100% - 28px);
+    opacity: 1;
+}
+
+/* Icon styles */
+.navbar-nav .nav-link i {
+    margin-right: 6px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #4facfe !important;
+}
+
+.navbar-nav .nav-link:hover i {
+    transform: translateY(-1px);
+}
+
+/* Active link state */
+.navbar-nav .nav-link.active {
+    color: #4facfe !important;
+}
+
+.navbar-nav .nav-link.active::after {
+    width: calc(100% - 28px);
+    opacity: 1;
+}
+
+/* Profile icon */
+.profile-icon {
+    color: #4facfe !important;
+    font-size: 1.2rem;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.profile-icon:hover {
+    border-color: rgba(79, 172, 254, 0.3);
+    transform: rotate(180deg);
+}
+
+/* Mobile menu */
+.navbar-toggler {
+    border: 1px solid rgba(79, 172, 254, 0.2);
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    border-color: rgba(79, 172, 254, 0.4);
+}
+
+.navbar-toggler:active,
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+    position: relative;
+    width: 20px;
+    height: 2px;
+    background-color: #4facfe;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    transform: translateY(-6px);
+}
+
+.navbar-toggler-icon::after {
+    transform: translateY(6px);
+}
+
+
+/* Mobile menu styles */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        backdrop-filter: blur(8px);
+        padding: 15px;
+        border-radius: 12px;
+        margin-top: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navbar-nav .nav-link {
+        margin: 8px 0;
+        padding: 8px 16px;
+    }
+    
+    .profile-icon {
+        margin: 8px auto;
+        display: block;
+        width: fit-content;
+    }
+}
+
+/* Minimal scrollbar */
+.navbar-collapse::-webkit-scrollbar {
+    width: 4px;
+}
+
+.navbar-collapse::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.navbar-collapse::-webkit-scrollbar-thumb {
+    background: #4facfe;
+    border-radius: 2px;
+}
+
+/* Smooth animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar-collapse.show {
+    animation: fadeIn 0.25s ease forwards;
+}
